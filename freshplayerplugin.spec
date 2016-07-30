@@ -1,6 +1,6 @@
 Name:    freshplayerplugin
 Version:    0.3.5
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:   Applications/Internet
 License: MIT
@@ -64,6 +64,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Sat Jul 30 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.3.5-2
+- Rebuilt for ffmpeg-3.1.1
+
 * Tue Jul 12 2016 Mauricio Teixeira <mauricio.teixeira@gmail.com> - 0.3.5-1
 - Upgrade to 0.3.5
 
