@@ -1,13 +1,35 @@
-Name:    freshplayerplugin
+Name:       freshplayerplugin
 Version:    0.3.5
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
-Group:   Applications/Internet
-License: MIT
-URL:     https://github.com/i-rinat/freshplayerplugin
-Source0: https://github.com/i-rinat/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Group:      Applications/Internet
+License:    MIT
+URL:        https://github.com/i-rinat/freshplayerplugin
+Source0:    https://github.com/i-rinat/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-BuildRequires: glib2-devel libX11-devel uriparser-devel cairo-devel pango-devel freetype-devel gtk2-devel gcc-c++ alsa-lib-devel libconfig-devel libevent-devel mesa-libGLES-devel cmake make ragel pulseaudio-libs-devel openssl-devel jack-audio-connection-kit-devel soxr-devel libv4l-devel libva-devel ffmpeg-devel libvdpau-devel
+BuildRequires: glib2-devel
+BuildRequires: libX11-devel
+BuildRequires: uriparser-devel
+BuildRequires: cairo-devel
+BuildRequires: pango-devel
+BuildRequires: freetype-devel
+BuildRequires: gtk2-devel
+BuildRequires: gcc-c++
+BuildRequires: alsa-lib-devel
+BuildRequires: libconfig-devel
+BuildRequires: libevent-devel
+BuildRequires: mesa-libGLES-devel
+BuildRequires: cmake
+BuildRequires: make
+BuildRequires: ragel
+BuildRequires: pulseaudio-libs-devel
+BuildRequires: openssl-devel
+BuildRequires: jack-audio-connection-kit-devel
+BuildRequires: soxr-devel
+BuildRequires: libv4l-devel
+BuildRequires: libva-devel
+BuildRequires: ffmpeg-devel
+BuildRequires: libvdpau-devel
 
 Requires: mozilla-filesystem
 
@@ -43,27 +65,30 @@ Second way will be used for the project. It will benefit other browsers too,
 not only Firefox.
 
 %prep
-%setup -q
+%autosetup
 
 %build
 mkdir build
 cd build
 %cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_SKIP_RPATH=true ..
-make %{?_smp_mflags}
+%make_build
 
 %install
 pushd build
-%make_install
+    %make_install
 popd
 install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.conf
 
 %files
-%doc README.md doc/*
+%doc ChangeLog README.md doc/*
 %license LICENSE
 %{_libdir}/mozilla/plugins/libfreshwrapper-flashplayer.so
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 0.3.5-3
+- Clean spec, Vascom patches series, rfbz #4192
+
 * Sat Jul 30 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.3.5-2
 - Rebuilt for ffmpeg-3.1.1
 
