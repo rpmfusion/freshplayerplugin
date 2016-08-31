@@ -66,6 +66,9 @@ not only Firefox.
 
 %prep
 %autosetup
+# Disable 3D (because some intel graphics i915 and others display slow videos)
+#sed -i 's|enable_3d = 1|enable_3d = 0|g' data/freshwrapper.conf.example
+#sed -i 's|enable_3d           =      1,|enable_3d           =      0,|g' src/config.c
 
 %build
 mkdir build
@@ -89,6 +92,7 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 * Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 0.3.5-3
 - Clean spec, Vascom patches series, rfbz #4192
 - Reorder BR to match with unitedrpms
+- Add possibility to disable 3D 
 
 * Sat Jul 30 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.3.5-2
 - Rebuilt for ffmpeg-3.1.1
