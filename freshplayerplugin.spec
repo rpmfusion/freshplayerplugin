@@ -7,30 +7,30 @@ License:    MIT
 URL:        https://github.com/i-rinat/freshplayerplugin
 Source0:    https://github.com/i-rinat/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-BuildRequires: glib2-devel
-BuildRequires: libX11-devel
-BuildRequires: uriparser-devel
-BuildRequires: cairo-devel
-BuildRequires: pango-devel
-BuildRequires: freetype-devel
-BuildRequires: gtk2-devel
 BuildRequires: gcc-c++
-BuildRequires: alsa-lib-devel
-BuildRequires: libconfig-devel
-BuildRequires: libevent-devel
-BuildRequires: mesa-libGLES-devel
 BuildRequires: cmake
 BuildRequires: make
 BuildRequires: ragel
+BuildRequires: glib2-devel
 BuildRequires: pulseaudio-libs-devel
+BuildRequires: alsa-lib-devel
+BuildRequires: pango-devel
+BuildRequires: libX11-devel
+BuildRequires: mesa-libGLES-devel
+BuildRequires: libconfig-devel
+BuildRequires: libevent-devel
+BuildRequires: freetype-devel
+BuildRequires: cairo-devel
+BuildRequires: gtk2-devel
+BuildRequires: uriparser-devel
 BuildRequires: openssl-devel
 BuildRequires: jack-audio-connection-kit-devel
 BuildRequires: soxr-devel
-BuildRequires: libv4l-devel
 BuildRequires: libva-devel
-BuildRequires: ffmpeg-devel
 BuildRequires: libvdpau-devel
 
+BuildRequires: ffmpeg-devel
+BuildRequires: libv4l-devel
 Requires: mozilla-filesystem
 
 %description
@@ -88,6 +88,7 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %changelog
 * Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 0.3.5-3
 - Clean spec, Vascom patches series, rfbz #4192
+- Reorder BR to match with unitedrpms
 
 * Sat Jul 30 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.3.5-2
 - Rebuilt for ffmpeg-3.1.1
