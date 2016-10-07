@@ -1,6 +1,6 @@
 Name:       freshplayerplugin
-Version:    0.3.5
-Release:    3%{?dist}
+Version:    0.3.6
+Release:    1%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
@@ -89,6 +89,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Fri Oct 07 2016 Mauricio Teixeira <mauricio.teixeira@gmail.com> - 0.3.6-1
+- Upgrade to 0.3.6
+
 * Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 0.3.5-3
 - Clean spec, Vascom patches series, rfbz #4192
 - Reorder BR to match with unitedrpms
