@@ -1,0 +1,11 @@
+diff -ru freshplayerplugin-0.3.6.orig/src/config_pepperflash.c freshplayerplugin-0.3.6/src/config_pepperflash.c
+--- freshplayerplugin-0.3.6.orig/src/config_pepperflash.c	2016-10-04 18:44:50.000000000 -0400
++++ freshplayerplugin-0.3.6/src/config_pepperflash.c	2017-01-12 17:39:49.534740489 -0500
+@@ -39,6 +39,7 @@
+     "/usr/lib64/chromium/PepperFlash",          // chromium-pepper-flash (Old Build) (CentOS/Read Hat/Fedora)
+     "/opt/chromium/PepperFlash",                // chromium-pepper-flash (New Build) (CentOS/Read Hat/Fedora)
+     "/usr/lib/pepflashplugin-installer",        // pepflashplugin-installer (Ubuntu)
++    "/usr/lib64/flash-plugin",                  // flash-player-ppapi (from Adobe repo)
+     NULL,
+ };
+ 

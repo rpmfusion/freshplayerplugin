@@ -1,11 +1,13 @@
 Name:       freshplayerplugin
 Version:    0.3.6
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
 URL:        https://github.com/i-rinat/freshplayerplugin
 Source0:    https://github.com/i-rinat/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
+Patch0: freshplayerplugin-adobe-ppapi.patch
 
 BuildRequires: gcc-c++
 BuildRequires: cmake
@@ -70,6 +72,8 @@ not only Firefox.
 #sed -i 's|enable_3d = 1|enable_3d = 0|g' data/freshwrapper.conf.example
 #sed -i 's|enable_3d           =      1,|enable_3d           =      0,|g' src/config.c
 
+%patch0 -p1
+
 %build
 mkdir build
 cd build
@@ -89,13 +93,16 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Fri Jan 13 2017 Mauricio Teixeira <mauricio.teixeira@gmail.com> - 0.3.6-2
+- bz#4411 Add Adobe PPAPI directory to search list (from flash-player-ppapi)
+
 * Fri Oct 07 2016 Mauricio Teixeira <mauricio.teixeira@gmail.com> - 0.3.6-1
 - Upgrade to 0.3.6
 
 * Wed Aug 31 2016 Sérgio Basto <sergio@serjux.com> - 0.3.5-3
 - Clean spec, Vascom patches series, rfbz #4192
 - Reorder BR to match with unitedrpms
-- Add possibility to disable 3D 
+- Add possibility to disable 3D
 
 * Sat Jul 30 2016 Julian Sikorski <belegdol@fedoraproject.org> - 0.3.5-2
 - Rebuilt for ffmpeg-3.1.1
