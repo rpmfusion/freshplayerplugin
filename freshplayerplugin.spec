@@ -7,8 +7,6 @@ License:    MIT
 URL:        https://github.com/i-rinat/freshplayerplugin
 Source0:    https://github.com/i-rinat/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-Patch0: freshplayerplugin-adobe-ppapi.patch
-
 BuildRequires: gcc-c++
 BuildRequires: cmake
 BuildRequires: make
@@ -72,7 +70,7 @@ not only Firefox.
 #sed -i 's|enable_3d = 1|enable_3d = 0|g' data/freshwrapper.conf.example
 #sed -i 's|enable_3d           =      1,|enable_3d           =      0,|g' src/config.c
 
-%patch0 -p1
+sed -i 's|    NULL,|    "/usr/lib64/flash-plugin",                  // flash-player-ppapi (from Adobe repo)\n    NULL,|g' src/config_pepperflash.c
 
 %build
 mkdir build
@@ -94,7 +92,7 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 
 %changelog
 * Fri Jan 13 2017 Mauricio Teixeira <mauricio.teixeira@gmail.com> - 0.3.6-2
-- bz#4411 Add Adobe PPAPI directory to search list (from flash-player-ppapi)
+- bz#4411 Add Adobe PPAPI directory to search list (from flash-player-ppapi
 
 * Fri Oct 07 2016 Mauricio Teixeira <mauricio.teixeira@gmail.com> - 0.3.6-1
 - Upgrade to 0.3.6
