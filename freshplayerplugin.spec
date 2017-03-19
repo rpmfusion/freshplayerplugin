@@ -1,6 +1,6 @@
 Name:       freshplayerplugin
 Version:    0.3.6
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
@@ -91,6 +91,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Sun Mar 19 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 0.3.6-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Fri Jan 13 2017 Mauricio Teixeira <mauricio.teixeira@gmail.com> - 0.3.6-2
 - bz#4411 Add Adobe PPAPI directory to search list (from flash-player-ppapi
 
