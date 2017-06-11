@@ -1,11 +1,11 @@
 Name:       freshplayerplugin
-Version:    0.3.6
-Release:    4%{?dist}
+Version:    0.3.7
+Release:    1%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
 URL:        https://github.com/i-rinat/freshplayerplugin
-Source0:    https://github.com/i-rinat/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:    https://github.com/i-rinat/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires: gcc-c++
 BuildRequires: cmake
@@ -70,8 +70,6 @@ not only Firefox.
 #sed -i 's|enable_3d = 1|enable_3d = 0|g' data/freshwrapper.conf.example
 #sed -i 's|enable_3d           =      1,|enable_3d           =      0,|g' src/config.c
 
-sed -i 's|    NULL,|    "/usr/lib64/flash-plugin",                  // flash-player-ppapi (from Adobe repo)\n    NULL,|g' src/config_pepperflash.c
-
 %build
 mkdir build
 cd build
@@ -91,6 +89,10 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Sat Jun 10 2017 Sérgio Basto <sergio@serjux.com> - 0.3.7-1
+- Update  to 0.3.7, rfbz #4551
+- sed already upstreamed
+
 * Sat Apr 29 2017 Leigh Scott <leigh123linux@googlemail.com> - 0.3.6-4
 - Rebuild for ffmpeg update
 
