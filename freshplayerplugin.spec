@@ -1,6 +1,6 @@
 Name:       freshplayerplugin
 Version:    0.3.7
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
@@ -89,6 +89,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 0.3.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Sat Jun 10 2017 Sérgio Basto <sergio@serjux.com> - 0.3.7-1
 - Update  to 0.3.7, rfbz #4551
 - sed already upstreamed
