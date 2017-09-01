@@ -1,6 +1,6 @@
 Name:       freshplayerplugin
 Version:    0.3.7
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
@@ -16,6 +16,7 @@ BuildRequires: pulseaudio-libs-devel
 BuildRequires: alsa-lib-devel
 BuildRequires: pango-devel
 BuildRequires: libX11-devel
+BuildRequires: mesa-libGL-devel
 BuildRequires: mesa-libGLES-devel
 BuildRequires: libconfig-devel
 BuildRequires: libevent-devel
@@ -89,6 +90,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Fri Sep 01 2017 Leigh Scott <leigh123linux@googlemail.com> - 0.3.7-3
+- Add build requires mesa-libGL-devel
+
 * Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 0.3.7-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
