@@ -1,6 +1,6 @@
 Name:       freshplayerplugin
 Version:    0.3.7
-Release:    3%{?dist}
+Release:    4%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
@@ -90,6 +90,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Mon Jan 15 2018 Nicolas Chauvet <kwizart@gmail.com> - 0.3.7-4
+- Update to VA-API 1.0.0
+
 * Fri Sep 01 2017 Leigh Scott <leigh123linux@googlemail.com> - 0.3.7-3
 - Add build requires mesa-libGL-devel
 
