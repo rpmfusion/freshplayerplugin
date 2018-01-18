@@ -1,14 +1,15 @@
 Name:       freshplayerplugin
-Version:    0.3.7
-Release:    5%{?dist}
+Version:    0.3.9
+Release:    1%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
-URL:        https://github.com/i-rinat/freshplayerplugin
-Source0:    https://github.com/i-rinat/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
+URL:        https://github.com/i-rinat/%{name}
+Source0:    %url/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:     %url/commit/934aa9c24d34f8203744b56e4ac6e8599446ca02.patch#/ffmpeg35_buildfix.patch
 
 BuildRequires: gcc-c++
-BuildRequires: cmake
+BuildRequires: cmake3
 BuildRequires: make
 BuildRequires: ragel
 BuildRequires: glib2-devel
@@ -66,7 +67,7 @@ Second way will be used for the project. It will benefit other browsers too,
 not only Firefox.
 
 %prep
-%autosetup
+%autosetup -p1
 # Disable 3D (because some intel graphics i915 and others display slow videos)
 #sed -i 's|enable_3d = 1|enable_3d = 0|g' data/freshwrapper.conf.example
 #sed -i 's|enable_3d           =      1,|enable_3d           =      0,|g' src/config.c
@@ -74,12 +75,12 @@ not only Firefox.
 %build
 mkdir build
 cd build
-%cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_SKIP_RPATH=true ..
+%cmake3 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_SKIP_RPATH=true ..
 %make_build
 
 %install
 pushd build
-    %make_install
+%make_install
 popd
 install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.conf
 
@@ -90,6 +91,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Thu Jan 18 2018 Leigh Scott <leigh123linux@googlemail.com> - 0.3.9-1
+- Update  to 0.3.9
+
 * Thu Jan 18 2018 Leigh Scott <leigh123linux@googlemail.com> - 0.3.7-5
 - Rebuilt for ffmpeg-3.5 git
 
