@@ -1,6 +1,6 @@
 Name:       freshplayerplugin
 Version:    0.3.9
-Release:    4%{?dist}
+Release:    5%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
@@ -91,6 +91,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Mon Mar 04 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.3.9-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Thu Jul 26 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.3.9-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
