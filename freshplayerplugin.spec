@@ -1,12 +1,11 @@
 Name:       freshplayerplugin
-Version:    0.3.9
-Release:    5%{?dist}
+Version:    0.3.10
+Release:    1%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 Group:      Applications/Internet
 License:    MIT
 URL:        https://github.com/i-rinat/%{name}
 Source0:    %url/archive/v%{version}/%{name}-%{version}.tar.gz
-Patch0:     %url/commit/934aa9c24d34f8203744b56e4ac6e8599446ca02.patch#/ffmpeg35_buildfix.patch
 
 BuildRequires: gcc-c++
 BuildRequires: cmake3
@@ -91,6 +90,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Mon Mar 18 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 0.3.10-1
+- Update to 0.3.10
+
 * Mon Mar 04 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 0.3.9-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
