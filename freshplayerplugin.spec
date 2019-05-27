@@ -1,8 +1,8 @@
 Name:       freshplayerplugin
-Version:    0.3.10
+Version:    0.3.11
 Release:    1%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
-Group:      Applications/Internet
+
 License:    MIT
 URL:        https://github.com/i-rinat/%{name}
 Source0:    %url/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -90,6 +90,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Mon May 27 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 0.3.11-1
+- Update to 0.3.11
+
 * Mon Mar 18 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 0.3.10-1
 - Update to 0.3.10
 
