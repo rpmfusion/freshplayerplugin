@@ -71,6 +71,11 @@ not only Firefox.
 #sed -i 's|enable_3d = 1|enable_3d = 0|g' data/freshwrapper.conf.example
 #sed -i 's|enable_3d           =      1,|enable_3d           =      0,|g' src/config.c
 
+# https://github.com/i-rinat/freshplayerplugin/issues/380
+sed -i 's|include_directories("${CMAKE_BINARY_DIR}")|include_directories("${CMAKE_BINARY_DIR}")\ninclude_directories("/usr/include/alsa")|' \
+    CMakeLists.txt
+
+
 %build
 mkdir build
 cd build
