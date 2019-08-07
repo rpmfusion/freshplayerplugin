@@ -1,6 +1,6 @@
 Name:       freshplayerplugin
 Version:    0.3.11
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 
 License:    MIT
@@ -95,6 +95,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Wed Aug 07 2019 Leigh Scott <leigh123linux@gmail.com> - 0.3.11-2
+- Rebuild for new ffmpeg version
+
 * Mon May 27 2019 Vasiliy N. Glazov <vascom2@gmail.com> - 0.3.11-1
 - Update to 0.3.11
 
