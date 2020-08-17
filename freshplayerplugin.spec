@@ -1,3 +1,5 @@
+%undefine __cmake_in_source_build
+
 Name:       freshplayerplugin
 Version:    0.3.11
 Release:    5%{?dist}
@@ -77,15 +79,11 @@ sed -i 's|include_directories("${CMAKE_BINARY_DIR}")|include_directories("${CMAK
 
 
 %build
-mkdir build
-cd build
-%cmake3 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_SKIP_RPATH=true ..
-%make_build
+%cmake3 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_SKIP_RPATH=true
+%cmake3_build
 
 %install
-pushd build
-%make_install
-popd
+%cmake3_install
 install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.conf
 
 %files
