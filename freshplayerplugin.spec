@@ -2,7 +2,7 @@
 
 Name:       freshplayerplugin
 Version:    0.3.11
-Release:    9%{?dist}
+Release:    10%{?dist}
 Summary:    PPAPI-host NPAPI-plugin adapter
 
 License:    MIT
@@ -93,6 +93,9 @@ install -Dm 0644 data/freshwrapper.conf.example %{buildroot}/etc/freshwrapper.co
 %config(noreplace) %{_sysconfdir}/freshwrapper.conf
 
 %changelog
+* Wed Feb 09 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 0.3.11-10
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
+
 * Thu Nov 11 2021 Leigh Scott <leigh123linux@gmail.com> - 0.3.11-9
 - Rebuilt for new ffmpeg snapshot
 
